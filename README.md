@@ -1,6 +1,19 @@
-# websocket-server
+# Websocket Chat Server Benchmark
 
-This benchmarks a websocket server intended as a simple but very active chat room, inspired by [bun's own benchmarks against node and Deno](https://github.com/oven-sh/bun/blob/main/bench/websocket-server/). It aims to compare those benchmarks against Rust's [actix-web](https://actix.rs/docs/websockets/) framework.
+This benchmarks a websocket server intended as a simple but very active chat room, with the JS code taken from [bun's own benchmarks against node and Deno](https://github.com/oven-sh/bun/blob/main/bench/websocket-server/). This benchmark aims to compare those benchmarks against Rust's [actix-web](https://actix.rs/docs/websockets/) framework.
+
+## Results
+
+To give a rough comparison, here is a random sample of running the 3 benchmarks on my machine:
+
+| Bench            | connection time (32 clients) | messages per second |
+| ---------------- | ---------------------------- | ------------------- |
+| Rust `actix-web` | 32.7ms                       | 1 616 263           |
+| Bun `Bun.serve`  | 129.756ms                    | 308 693             |
+| Node `ws`        | 143ms                        | 95 676              |
+
+
+## Running
 
 First, start one of the servers. By default, it will wait for 32 clients which the client script will handle.
 
